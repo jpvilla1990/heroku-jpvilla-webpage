@@ -6,10 +6,49 @@
 
 <h1>{{nombre}}</h1>
 <h2>Direccion: {{direccion}}</h2>
-<h12Latitud: {{latitud}}</h2>
-<h2>Longitud: {{longitud}}</h2>
+<h2>Latitud: <var id="lat">{{latitud}}</var></h2>
+<h2>Longitud: <var id="lng">{{longitud}}</var></h2>
 <h2>La temperatura es de {{temperatura}}°C, oscilando entre {{tempMin}}°C y {{tempMax}}°C</h2>
 
+
+
+
+
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+       
+// Initialize and add the map
+
+function initMap() {
+    // The location of Uluru
+
+    var lat = document.getElementById("lat").innerHTML;
+    var lng = document.getElementById("lng").innerHTML;
+
+    lat=Number(lat);
+    lng=Number(lng);
+
+
+    
+    console.log("oye",lat);
+    var place = { lat: lat, lng: lng };
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+        document.getElementById('map'), { zoom: 16, center: place });
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({ position: place, map: map });
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwq74wWpIaT8Fd-uvrxzQZRJpzRTfcO7I&callback=initMap">
+    </script>
 
 
 {{> footer }}

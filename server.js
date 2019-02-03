@@ -7,6 +7,16 @@ require('./hbs/helpers');
 
 const port = process.env.PORT || 8080;
 
+function initMap() {
+    // The location of Uluru
+    var place = { lat: 5, lng: 5 };
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+        document.getElementById('map'), { zoom: 4, center: place });
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({ position: place, map: map });
+}
+
 
 
 app.use(express.static(__dirname + '/public'));
@@ -39,7 +49,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.render('about', {
+    res.render('test', {
         nombre: 'Cintya'
 
     });

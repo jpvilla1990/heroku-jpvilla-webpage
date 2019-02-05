@@ -11,6 +11,17 @@
 <h2>La temperatura es de {{temperatura}}°C, oscilando entre {{tempMin}}°C y {{tempMax}}°C</h2>
 
 
+<a href="https://www.google.com/maps/search/?api=1&query={{latitud}},{{longitud}}">Google Maps</a>
+
+<form action="https://www.google.com/maps/search/?api=1&query={{longitud}},{{latitud}}" method="GET">
+  <div class="form-group">
+    <label for="direccion">Abrir google maps</label>
+    <input type="submit" name="submit" value="submit" id="submit">
+  </div>
+
+</form>
+
+
 
 
 
